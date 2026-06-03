@@ -49,19 +49,19 @@ export function TraceDrawer({ open, onToggle, rows }: Props) {
   const [expanded, setExpanded] = useState<string | null>(null);
   return (
     <div
-      className={`shrink-0 border-t border-spy-line bg-spy-bg text-spy-text font-mono-spy spy-scroll transition-[height] duration-300 ease-out ${
+      className={`shrink-0 border-t border-spy-line bg-spy-panel text-spy-text font-mono-spy spy-scroll transition-[height] duration-300 ease-out ${
         open ? "h-64" : "h-9"
       }`}
     >
       {/* Toggle bar */}
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between border-b border-spy-line/60 px-5 py-2 text-[9.5px] uppercase tracking-[0.22em] text-spy-muted transition-colors duration-150 hover:text-spy-gold"
+        className="flex w-full items-center justify-between border-b border-spy-line px-5 py-2 text-[9.5px] uppercase tracking-[0.22em] text-spy-muted transition-colors duration-150 hover:text-spy-gold"
       >
         <span className="flex items-center gap-2">
           <span className="text-spy-gold">006</span>
           <span>trace log</span>
-          <span className="rounded-sm border border-spy-line bg-white/5 px-1.5 py-0.5 text-[8px] text-spy-muted">
+          <span className="rounded-sm border border-spy-line bg-black/50 px-1.5 py-0.5 text-[8px] text-spy-muted">
             {rows.length}
           </span>
         </span>

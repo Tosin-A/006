@@ -14,7 +14,7 @@ const config: Config = {
           text: "#e8e6e1",
           muted: "#8a8890",
           bubble: "#1a1a20",
-          accent: "#c9a227",
+          accent: "#f97316",
         },
         spy: {
           bg: "#08080a",
@@ -22,7 +22,7 @@ const config: Config = {
           line: "#25252e",
           text: "#e8e6e1",
           muted: "#6e6e78",
-          gold: "#c9a227",
+          gold: "#f97316",
           green: "#4a9b6e",
           red: "#b83c3c",
         },

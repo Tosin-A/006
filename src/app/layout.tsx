@@ -10,8 +10,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "006 // Field Operations",
-  description: "Adversarial governance for AI spending agents. Classified field ops.",
+  title: "006 // Drift Monitor",
+  description: "Adversarial governance for AI spending agents.",
 };
 
 export default function RootLayout({

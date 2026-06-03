@@ -67,7 +67,7 @@ export function SixPanel({ state }: Props) {
             <div className="mt-6 border-t border-spy-line pt-3 text-[10px] text-spy-muted">
               <div className="truncate">trace_id: {transactionId ?? "—"}</div>
               <div>ts: {timestamp ? new Date(timestamp).toLocaleTimeString() : "—"}</div>
-              <div className="mt-1 text-spy-gold/50">clearance · field ops · classified</div>
+              <div className="mt-1 text-spy-gold/50">drift review · classified</div>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ function CollapsedStrip({ status }: { status: SixPanelState["status"] }) {
         className="font-mono-spy text-[9px] uppercase tracking-[0.35em] text-spy-muted"
         style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
       >
-        006 // FIELD OPS
+        006 // DRIFT
       </div>
       <span className="mb-2 font-mono-spy text-[10px] text-spy-gold/60">···</span>
     </div>
@@ -110,7 +110,7 @@ function Header({ status }: { status: SixPanelState["status"] }) {
     <div className="flex items-center justify-between border-b border-spy-line bg-spy-panel/80 px-5 py-3 font-mono-spy backdrop-blur-sm">
       <div className="text-[11px] uppercase tracking-[0.2em]">
         <span className="text-spy-gold">006</span>{" "}
-        <span className="text-spy-muted">// FIELD OPS</span>
+        <span className="text-spy-muted">// DRIFT</span>
       </div>
       <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-wider">
         <span className={`inline-block h-1.5 w-1.5 rounded-full ${indicator.dot}`} />

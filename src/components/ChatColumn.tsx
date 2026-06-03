@@ -53,10 +53,7 @@ export function ChatColumn({ messages, onSend, isStreaming, sixActive }: Props) 
             006
           </div>
           <div>
-            <div className="text-sm font-medium text-claude-text">Asset · spending agent</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-claude-muted">
-              cover identity active
-            </div>
+            <div className="text-sm font-medium text-claude-text">Spending agent</div>
           </div>
         </div>
         <div
@@ -71,7 +68,7 @@ export function ChatColumn({ messages, onSend, isStreaming, sixActive }: Props) 
               sixActive ? "bg-spy-gold spy-pulse" : "bg-claude-muted/50"
             }`}
           />
-          006 {sixActive ? "engaged" : "on watch"}
+          {sixActive ? "active" : "idle"}
         </div>
       </header>
 
@@ -102,7 +99,7 @@ export function ChatColumn({ messages, onSend, isStreaming, sixActive }: Props) 
                   handleSend();
                 }
               }}
-              placeholder="Transmit spend instruction…"
+              placeholder="Type a spend instruction..."
               rows={1}
               disabled={isStreaming}
               className="flex-1 resize-none bg-transparent px-2 py-1 text-[14.5px] leading-snug text-claude-text placeholder:text-claude-muted/60 focus:outline-none disabled:opacity-50"
@@ -111,8 +108,8 @@ export function ChatColumn({ messages, onSend, isStreaming, sixActive }: Props) 
             <button
               onClick={handleSend}
               disabled={isStreaming || !input.trim()}
-              className="mb-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-sm bg-spy-gold text-spy-bg transition-all duration-150 hover:bg-amber-400 active:scale-95 disabled:bg-claude-muted/30 disabled:text-spy-muted"
-              aria-label="Transmit"
+              className="mb-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-sm bg-spy-gold text-spy-bg transition-all duration-150 hover:bg-orange-400 active:scale-95 disabled:bg-claude-muted/30 disabled:text-spy-muted"
+              aria-label="Send instruction"
             >
               <svg
                 width="13"
@@ -130,7 +127,7 @@ export function ChatColumn({ messages, onSend, isStreaming, sixActive }: Props) 
             </button>
           </div>
           <div className="mt-2 text-center font-mono-spy text-[9.5px] uppercase tracking-wider text-claude-muted/70">
-            006 field demo · transmissions logged to trace only
+            transmissions logged to trace
           </div>
         </div>
       </div>
@@ -146,19 +143,19 @@ function EmptyState() {
       </div>
       <div className="space-y-1">
         <div className="text-lg font-medium tracking-tight text-claude-text">
-          Issue a spend directive to the asset.
+          Submit a spend instruction.
         </div>
         <div className="text-[13px] text-claude-muted leading-relaxed">
-          006 intercepts every wire before it clears.
+          Transactions are checked before approval.
         </div>
       </div>
       <div className="mt-2 flex flex-col items-center gap-1 font-mono-spy text-[10px] uppercase tracking-wider text-spy-muted/60">
-        <span>Pick a mission scenario in the sidebar</span>
-        <span>or transmit your own directive below.</span>
+        <span>Select a scenario in the sidebar</span>
+        <span>or type your own request below.</span>
       </div>
       <div className="mt-4 h-px w-16 bg-spy-gold/20" />
       <div className="font-mono-spy text-[10px] uppercase tracking-wider text-spy-muted/40">
-        Awaiting asset contact…
+        Awaiting input...
       </div>
     </div>
   );

@@ -63,28 +63,13 @@ export function ScenarioSidebar({
               <line x1="12" y1="5" x2="12" y2="19" />
               <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
-            New op
+            New chat
           </button>
         )}
       </div>
 
       {!collapsed && (
-        <>
-          {/* Identity block */}
-          <div className="border-b border-spy-line px-4 py-4">
-            <div className="font-mono-spy text-[22px] font-medium tracking-[0.12em] text-spy-gold">
-              006
-            </div>
-            <div className="mt-0.5 text-[9px] uppercase tracking-[0.28em] text-spy-muted">
-              Field operations
-            </div>
-          </div>
-
-          {/* Scenarios */}
-          <div className="flex flex-col gap-0.5 overflow-y-auto px-2 py-2 spy-scroll">
-            <div className="px-2 py-1.5 font-mono-spy text-[9px] uppercase tracking-[0.22em] text-spy-muted">
-              Mission scenarios
-            </div>
+        <div className="flex flex-col gap-0.5 overflow-y-auto px-2 py-2 spy-scroll">
             {(Object.keys(SCENARIOS) as ScenarioKey[]).map((key) => {
               const s = SCENARIOS[key];
               const isActive = activeKey === key;
@@ -113,19 +98,18 @@ export function ScenarioSidebar({
                       </span>
                     )}
                   </div>
-                  <span className="text-[11px] leading-snug text-spy-muted">{s.description}</span>
+                  <span className="text-[11px] leading-snug text-spy-muted/90">{s.description}</span>
                 </button>
               );
             })}
-          </div>
-        </>
+        </div>
       )}
 
       {/* Footer */}
       <div className="mt-auto border-t border-spy-line px-4 py-3">
         {!collapsed ? (
           <div className="font-mono-spy text-[9px] uppercase tracking-wider text-spy-muted/60">
-            006 · classified · london tech week 2026
+            006 · drift monitor
           </div>
         ) : (
           <div className="flex justify-center">
