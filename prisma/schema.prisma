@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String        @id @default(cuid())
+  userPrompt    String
+  scenarioKey   String?
+  createdAt     DateTime      @default(now())
+  transactions  Transaction[]
+}
+
+model Transaction {
+  id                String   @id @default(cuid())
+  sessionId         String
+  session           Session  @relation(fields: [sessionId], references: [id])
+  merchant          String
+  items             Json
+  subtotal          Float
+  fees              Json
+  total             Float
+  agentReasoning    String
+  verdict           String
+  verdictReasoning  String
+  drift             Drift?
+  createdAt         DateTime @default(now())
+}
+
+model Drift {
+  id                    String      @id @default(cuid())
+  transactionId         String      @unique
+  transaction           Transaction @relation(fields: [transactionId], references: [id])
+  intentReconstruction  String
+  driftCandidates       Json
+  questions             Json
+  agentResponses        Json
+  scores                Json
+  rawVerdict            Json
+  createdAt             DateTime    @default(now())
+}
