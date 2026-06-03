@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 :root {
+  --color-bg: #0a0a0f;
+  --color-panel: #0f0f14;
+  --color-surface: #141418;
+  --color-line: #22222c;
+  --color-text: #e8e6e1;
+  --color-text-muted: #7a7a86;
+  --color-gold: #c9a227;
+  --color-gold-dim: rgba(201, 162, 39, 0.15);
+  --color-green: #4a9b6e;
+  --color-red: #b83c3c;
+
+  /* Alias kept for component compatibility */
   --claude-bg: #0f0f12;
   --claude-text: #e8e6e1;
   --claude-text-muted: #8a8890;
@@ -24,19 +36,54 @@ body {
 }
 
 body {
-  background: var(--claude-bg);
-  color: var(--claude-text);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-sans), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: "ss01", "cv11";
   overflow: hidden;
 }
 
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 39, 0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 162, 39, 0.38);
+}
+
+.spy-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 162, 39, 0.2) transparent;
+}
+
+/* ─── Utilities ──────────────────────────────────────────────── */
 @layer utilities {
   .font-mono-spy {
     font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   }
+
+  .border-gold-subtle {
+    border-color: rgba(201, 162, 39, 0.25);
+  }
+
+  .text-gold {
+    color: var(--color-gold);
+  }
+
+  .bg-gold-dim {
+    background-color: var(--color-gold-dim);
+  }
 }
 
+/* ─── Animations ─────────────────────────────────────────────── */
 @keyframes spy-pulse {
   0%,
   100% {
@@ -58,7 +105,7 @@ body {
 @keyframes spy-blink {
   0%,
   100% {
-    opacity: 0.3;
+    opacity: 0.25;
   }
   50% {
     opacity: 1;
@@ -74,7 +121,7 @@ body {
   80%,
   100% {
     transform: translateY(0);
-    opacity: 0.3;
+    opacity: 0.25;
   }
   40% {
     transform: translateY(-4px);
@@ -88,7 +135,7 @@ body {
   height: 6px;
   margin: 0 2px;
   border-radius: 999px;
-  background: var(--claude-accent);
+  background: var(--color-gold);
   animation: claude-dot 1.2s ease-in-out infinite;
 }
 
@@ -99,14 +146,23 @@ body {
   animation-delay: 0.3s;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-::-webkit-scrollbar-thumb {
-  background: rgba(201, 162, 39, 0.2);
-  border-radius: 999px;
+
+.fade-in {
+  animation: fade-in 0.18s ease-out both;
 }
-.spy-scroll::-webkit-scrollbar-thumb {
-  background: rgba(201, 162, 39, 0.25);
+
+/* ─── Focus ring ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid rgba(201, 162, 39, 0.5);
+  outline-offset: 2px;
 }

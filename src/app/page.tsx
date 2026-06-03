@@ -144,8 +144,8 @@ export default function Home() {
   const sixActive = six.open;
 
   return (
-    <div className="flex h-screen w-screen flex-col bg-claude-bg">
-      <div className="flex min-h-0 flex-1">
+    <div className="flex h-screen w-screen flex-col overflow-hidden bg-spy-bg">
+      <div className="flex min-h-0 flex-1 overflow-hidden">
         <ScenarioSidebar
           onPick={handlePickScenario}
           onNewSession={handleNewSession}
